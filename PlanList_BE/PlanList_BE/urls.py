@@ -24,6 +24,7 @@ from planlist import views
 router = routers.DefaultRouter()
 
 router.register('test', views.testButton, 'test')
+router.register('wishList', views.WishListView, 'wishList')
 
 
 urlpatterns = [
