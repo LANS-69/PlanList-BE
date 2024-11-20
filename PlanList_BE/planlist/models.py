@@ -10,9 +10,9 @@ class Books(models.Model):
 class WishList(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    storeUrl = models.URLField()
-    image = models.URLField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    storeUrl = models.URLField(blank=True)
+    image = models.URLField(blank=True, null=True)
+    price = models.DecimalField(blank=True, null=True, max_digits=10, decimal_places=2)
 
     class Location(models.TextChoices):
         LIVINGROOM = 'livingroom', 'Living Room'
