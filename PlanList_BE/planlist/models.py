@@ -10,7 +10,7 @@ class Books(models.Model):
 class WishList(models.Model):
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    storeUrl = models.URLField(blank=True)
+    storeUrl = models.URLField(blank=True, max_length=2000)
     image = models.URLField(blank=True, null=True)
     price = models.DecimalField(blank=True, null=True, max_digits=10, decimal_places=2)
 
