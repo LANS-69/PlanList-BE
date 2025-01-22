@@ -23,7 +23,8 @@ from planlist import views
 
 router = routers.DefaultRouter()
 
-router.register('test', views.testButton, 'test')
+router.register('Movie', views.MovieView, 'Movie')
+router.register('TvShow', views.TvShowView, 'TvShow')
 router.register('wishList', views.WishListView, 'wishList')
 
 

@@ -3,8 +3,15 @@ from .models import *
 
 # Register your models here.
 
-class BookAdmin(admin.ModelAdmin):
-    list_display = ('name', 'author')
+class MovieAdmin(admin.ModelAdmin):
+     list_display = ('name', 'mainGenre', 'subGenre', 'trailerLink', 'image')
+     search_fields = ('name', 'mainGenre', 'subGenre')
+     list_filter  = ('mainGenre', 'subGenre')
+
+class TvShowAdmin(admin.ModelAdmin):
+     list_display = ('name', 'mainGenre', 'subGenre', 'trailerLink', 'image')
+     search_fields = ('name', 'mainGenre', 'subGenre')
+     list_filter  = ('mainGenre', 'subGenre')
 
 class WishListAdmin(admin.ModelAdmin):
     list_display = ('name', 'description', 'storeUrl', 'image', 'price', 'location')
@@ -13,5 +20,6 @@ class WishListAdmin(admin.ModelAdmin):
     ordering = ('name', 'price')
     prepopulated_fields = {'description': ('name',)}
 
-admin.site.register(Books, BookAdmin)
+admin.site.register(Movie, MovieAdmin)
+admin.site.register(TvShow, TvShowAdmin)
 admin.site.register(WishList, WishListAdmin)

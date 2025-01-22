@@ -2,9 +2,25 @@ from django.db import models
 
 # Create your models here.
 
-class Books(models.Model):
+class Movie(models.Model):
     name = models.CharField(max_length=255)
-    author = models.CharField(max_length=255)
+    trailerLink = models.URLField(blank=True, max_length=2000)
+    image = models.URLField(blank=True, max_length=2000)
+    
+    class Genre(models.TextChoices):
+        ACTION = 'ACTION', 'Action'
+        COMEDY = 'COMEDY', 'Comedy'
+        DRAMA = 'DRAMA', 'Drama'
+        HORROR = 'HORROR', 'Horror'
+        ROMANCE = 'ROMANCE', 'Romance'
+        SCIFI = 'SCIFI', 'Science Fiction'  
+        FANTASY = 'FANTASY', 'Fantasy'      
+        DOCUMENTARY = 'DOCUMENTARY', 'Documentary'
+        OTHER = 'other', 'Other'
+
+    mainGenre = models.CharField(max_length=20, choices=Genre.choices, blank=True)
+    subGenre = models.CharField(max_length=20, choices=Genre.choices, blank=True)
+
 
 
 class WishList(models.Model):
@@ -26,3 +42,23 @@ class WishList(models.Model):
         OTHER = 'other', 'Other'
     
     location = models.CharField(max_length=10, choices=Location.choices)
+
+
+class TvShow(models.Model):
+    name = models.CharField(max_length=255)
+    trailerLink = models.URLField(blank=True, max_length=2000)
+    image = models.URLField(blank=True, max_length=2000)
+    
+    class Genre(models.TextChoices):
+        ACTION = 'ACTION', 'Action'
+        COMEDY = 'COMEDY', 'Comedy'
+        DRAMA = 'DRAMA', 'Drama'
+        HORROR = 'HORROR', 'Horror'
+        ROMANCE = 'ROMANCE', 'Romance'
+        SCIFI = 'SCIFI', 'Science Fiction'  
+        FANTASY = 'FANTASY', 'Fantasy'      
+        DOCUMENTARY = 'DOCUMENTARY', 'Documentary'
+        OTHER = 'other', 'Other'
+
+    mainGenre = models.CharField(max_length=20, choices=Genre.choices, blank=True)
+    subGenre = models.CharField(max_length=20, choices=Genre.choices, blank=True)

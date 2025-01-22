@@ -1,9 +1,14 @@
 from rest_framework import serializers
 from .models import *
 
-class BookSerializer(serializers.ModelSerializer):
+class MovieSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Books
+        model = Movie
+        fields = '__all__'
+
+class TvShowSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TvShow
         fields = '__all__'
 
 
